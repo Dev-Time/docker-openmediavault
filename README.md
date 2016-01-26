@@ -1,5 +1,3 @@
-[![](https://images.microbadger.com/badges/image/ikogan/openmediavault.svg)](https://microbadger.com/images/ikogan/openmediavault "Get your own image badge on microbadger.com")
-
 # OpenMediaVault Docker Container
 
 Basic Docker container for OpenMediaVault primarily useful
@@ -72,20 +70,18 @@ folder that's simply a directory on the filesystem, and isn't bound to a block
 device. You'll need to use the OMV command line tools to set this up:
 
 ```sh
-#!/bin/bash
+/bin/bash
 set -e
-
-. /usr/share/openmediavault/scripts/helper-functions
 
 FSPATH="${1}"
 FSNAME="${2}"
 
 if [[ -z "${FSPATH}" || -z "${FSNAME}" ]]; then
-    echo "Usage: ${0} <fspath> <fsname>"
+    echo "Usage: ${0} <fspath> <fsname>
     exit 1
 fi
 
-mkdir -p "${FSPATH}" || true
+mkdir -p "${FSPATH"} || true
 
 MNT_ENT_XPATH="/config/system/fstab/mntent"
 SHARE_XPATH="/config/system/shares/sharedfolder"
