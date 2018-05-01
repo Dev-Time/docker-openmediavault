@@ -110,7 +110,16 @@ fi
 #     /etc/init.d/${EACH} start
 # done
 
-service --full-restart
+# service --full-restart
+
+# init 0
+
+# init 5
+
+FILES=/etc/init.d/*
+for f in $FILES; do
+    /etc/init.d/${f} start
+done
 
 if [[ -e /data/startup.sh ]]; then
     /data/startup.sh
