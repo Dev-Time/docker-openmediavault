@@ -102,11 +102,15 @@ if [ ! -z "${httpsPort}" ]; then
     sed -i "s|listen \(.*\):[0-9][0-9]* \(.*\) ssl \(.*\)|:listen \1:${httpsPort} \2 ssl \3|g" /etc/nginx/sites-available/openmediavault-webgui
 fi
 
-SERVICES="openmediavault php5-fpm rrdcached rsyslog sudo anacron ntp openmediavault-engined cron postfix nginx collectd rc.local monit"
+# SERVICES="openmediavault php7.0-fpm rrdcached rsyslog sudo anacron ntp openmediavault-engined cron postfix nginx collectd rc.local monit"
+# SERVICES="acpid avahi-daemon anacron collected cpufrequtils cron dbus kmod loadcpufreq monit"
 
-for EACH in ${SERVICES}; do
-    /etc/init.d/${EACH} start
-done
+
+# for EACH in ${SERVICES}; do
+#     /etc/init.d/${EACH} start
+# done
+
+service --full-restart
 
 if [[ -e /data/startup.sh ]]; then
     /data/startup.sh
