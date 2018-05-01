@@ -28,6 +28,9 @@ RUN apt-get install apt-transport-https; wget http://omv-extras.org/openmediavau
 # Install the plugin development tools
 RUN omv-config -m //system/omvextrasorg/beta "1"; omv-mkconf omvextrasorg; apt-get install -y openmediavault-developer vim
 
+# Install the plugin development tools
+RUN omv-config -m //system/omvextrasorg/beta "1"; omv-mkconf omvextrasorg; apt-get install -y openmediavault-developer vim
+
 # Add our startup script last because we don't want changes
 # to it to require a full container rebuild
 COPY omv-startup /usr/sbin/omv-startup
