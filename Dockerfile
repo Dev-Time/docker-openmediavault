@@ -23,7 +23,7 @@ RUN apt-get --yes --autoremove --show-upgraded --allow-downgrades --allow-change
 COPY defaults/rrdcached /etc/default
 
 # Install omv-extras
-RUN apt-get install apt-transport-https; wget http://omv-extras.org/openmediavault-omvextrasorg_latest_all.deb -O /tmp/omv-extras.deb; dpkg -i /tmp/omv-extras.deb; rm /tmp/omv-extras.deb; apt-get update
+RUN apt-get install apt-transport-https; wget http://omv-extras.org/openmediavault-omvextrasorg_latest_all4.deb -O /tmp/omv-extras.deb; dpkg -i /tmp/omv-extras.deb; rm /tmp/omv-extras.deb; apt-get update
 
 # Add our startup script last because we don't want changes
 # to it to require a full container rebuild
